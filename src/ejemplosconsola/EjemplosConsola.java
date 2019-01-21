@@ -31,8 +31,7 @@ public class EjemplosConsola {
                     listaMaximos[1] = listaMaximos[0]; //desplazo a la derecha el que había como maximo
                 }
                 listaMaximos[0] = lista[i];
-            } 
-            else if (listaMaximos[1] <= lista[i]) {//compruebo si el número que estoy leyendo es mayor
+            } else if (listaMaximos[1] <= lista[i]) {//compruebo si el número que estoy leyendo es mayor
                 listaMaximos[1] = lista[i]; //pongo en la SEGUNDA posición al nuevo SEGUNDO máximo
             }
         }
@@ -40,6 +39,60 @@ public class EjemplosConsola {
         return listaMaximos;
     }
 
+    private boolean palindromo(String cadena){
+        //primera fase: creo un nuevo String que sea una copia del
+        //que me pasan pero quitandole los espacios en blanco
+        String auxiliar = "";
+        for (int i=0; i< cadena.length(); i++){
+            if (cadena.charAt(i) != ' '){
+                auxiliar = auxiliar + cadena.charAt(i);
+            }
+        }   
+        //ahora en auxliar tengo el string pero sin espacios en blanco
+        //declaro dos indices para que digan qué posiciones estoy comparando
+        int indiceIzq = 0;
+        int indiceDer = auxiliar.length()-1;
+        
+        //mientras sean iguales los caracteres en esas posiciones la palabra será un palindromo
+        //además, si el indice izquierdo es mayor que el derecho, ya he chequeado toda la frase
+        while (auxiliar.charAt(indiceIzq) == auxiliar.charAt(indiceDer) && indiceIzq <= indiceDer){
+            indiceIzq++;
+            indiceDer--;
+        }
+        boolean resultado = false;
+        if (indiceIzq < indiceDer){// si esto se cumple es que la palabra no es un palindromo
+            resultado = true;
+        }
+        
+        return true;
+    }
+    
+    private void palindromoV2 (String cadena){
+        String auxiliar = "";
+        for (int i=0; i< cadena.length(); i++){
+            if (cadena.charAt(i) != ' '){
+                auxiliar = auxiliar + cadena.charAt(i);
+            }
+        }
+    //aqui ya tengo en el string auxiliar todas las letras
+    //de la palabra original pero sin espacios en blanco
+    
+    int indiceIzq = 0;
+    int indiceDer = auxiliar.length() - 1;
+    
+    while (auxiliar.charAt(indiceIzq) == auxiliar.charAt(indiceDer) && (indiceIzq <= indiceDer)){
+        indiceIzq++;
+        indiceDer--;
+        }
+    boolean resultado = true;
+    if (indiceIzq < indiceDer){
+        System.out.print("La cadena " + cadena + "NO es un Palíndromo");
+        }
+    else { System.out.print("La cadena " + cadena + "SI es un Palíndromo");
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -51,6 +104,11 @@ public class EjemplosConsola {
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros2)));
 
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros3)));
+    
+        
+        System.out.println(ejercicios.palindromo("ACASO HUBO BUHOS ACA"));
     }
 
 }
+
+
