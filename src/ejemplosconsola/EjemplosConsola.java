@@ -93,22 +93,34 @@ public class EjemplosConsola {
         }
     }
 
-    private boolean esIsograma(String palabra){
-       for (int i=0; i<palabra.length()-1; i++){
-           for (int j=i+1; j<palabra.length(); j++){
-               if (palabra.charAt(j) == palabra.charAt(i)){
-                   return false;
-               }
-           }
-       }
-       //si ha recorrido los dos bucles for enteros, es que 
-       //la palabra no tiene letras repetidas
-       return true;
+    private boolean esIsograma(String palabra) {
+        for (int i = 0; i < palabra.length() - 1; i++) {
+            for (int j = i + 1; j < palabra.length(); j++) {
+                if (palabra.charAt(j) == palabra.charAt(i)) {
+                    return false;
+                }
+            }
+        }
+        //si ha recorrido los dos bucles for enteros, es que 
+        //la palabra no tiene letras repetidas
+        return true;
     }
 
+    private void imprimeMes(int num) {
+        for (int i = 1; i <= 31; i++) {
+            if (i % 7 == 0) {
+                System.out.println(" " + i);
+                i += 1;
+            }
+            if (i < 10) {
+                System.out.print(" " + 0 + i);
+            }
+            if (i > 10) {
+                System.out.print(" " + i);
+            }
+        }
 
-
-
+    }
 
     /**
      * @param args the command line arguments
@@ -126,20 +138,19 @@ public class EjemplosConsola {
 //        ramon.palindromo("ACdfgfgddfgASO HUBO BUHOS ACA") ;
 //        ramon.palindromo("TACOCAT") ;
 //        ramon.palindromo("TACCAT") ;
+//      ramon.palindromoV2("ACASO HUBO BUHOS ACA") ;
+//      ramon.palindromoV2("ACdfgfgddfgASO HUBO BUHOS ACA") ;
+//      ramon.palindromoV2("TACOCAT") ;
+//      ramon.palindromoV2("TACCAT") ;
+//      ejercicios.palindromoV2("ACASO HUBO BUHOS ACA") ;
+//      ejercicios.palindromoV2("ACdfgfgddfgASO HUBO BUHOS ACA") ;
+//      ejercicios.palindromoV2("TACOCAT") ;
+//      ejercicios.palindromoV2("TACCAT") ;
+        //System.out.println("TACCAT  " + ejercicios.esIsograma("TACCAT"));
+        //System.out.println("murcielago  " + ejercicios.esIsograma("murcielago"));
+        //System.out.println("murcielagoo  " + ejercicios.esIsograma("murcielagoo"));
+        ejercicios.imprimeMes(3);
 
-
-        ramon.palindromoV2("ACASO HUBO BUHOS ACA") ;
-        ramon.palindromoV2("ACdfgfgddfgASO HUBO BUHOS ACA") ;
-        ramon.palindromoV2("TACOCAT") ;
-        ramon.palindromoV2("TACCAT") ;
-        ejercicios.palindromoV2("ACASO HUBO BUHOS ACA") ;
-        ejercicios.palindromoV2("ACdfgfgddfgASO HUBO BUHOS ACA") ;
-        ejercicios.palindromoV2("TACOCAT") ;
-        ejercicios.palindromoV2("TACCAT") ;
-
-        System.out.println("TACCAT  " +ejercicios.esIsograma("TACCAT")) ;
-        System.out.println("murcielago  " +ejercicios.esIsograma("murcielago")) ;
-        System.out.println("murcielagoo  " +ejercicios.esIsograma("murcielagoo")) ;
     }
 
 }
