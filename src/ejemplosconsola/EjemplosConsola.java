@@ -39,76 +39,107 @@ public class EjemplosConsola {
         return listaMaximos;
     }
 
-    private boolean palindromo(String cadena){
+    private boolean palindromo(String cadena) {
         //primera fase: creo un nuevo String que sea una copia del
         //que me pasan pero quitandole los espacios en blanco
         String auxiliar = "";
-        for (int i=0; i< cadena.length(); i++){
-            if (cadena.charAt(i) != ' '){
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cadena.charAt(i) != cadena.charAt(0)) {
                 auxiliar = auxiliar + cadena.charAt(i);
             }
-        }   
+
+        }
         //ahora en auxliar tengo el string pero sin espacios en blanco
         //declaro dos indices para que digan qué posiciones estoy comparando
         int indiceIzq = 0;
-        int indiceDer = auxiliar.length()-1;
-        
+        int indiceDer = auxiliar.length() - 1;
+
         //mientras sean iguales los caracteres en esas posiciones la palabra será un palindromo
         //además, si el indice izquierdo es mayor que el derecho, ya he chequeado toda la frase
-        while (auxiliar.charAt(indiceIzq) == auxiliar.charAt(indiceDer) && indiceIzq <= indiceDer){
+        while (auxiliar.charAt(indiceIzq) == auxiliar.charAt(indiceDer) && indiceIzq <= indiceDer) {
             indiceIzq++;
             indiceDer--;
         }
         boolean resultado = false;
-        if (indiceIzq < indiceDer){// si esto se cumple es que la palabra no es un palindromo
+        if (indiceIzq < indiceDer) {// si esto se cumple es que la palabra no es un palindromo
             resultado = true;
         }
-        
+
         return true;
     }
-    
-    private void palindromoV2 (String cadena){
+
+    private void palindromoV2(String cadena) {
         String auxiliar = "";
-        for (int i=0; i< cadena.length(); i++){
-            if (cadena.charAt(i) != ' '){
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cadena.charAt(i) != ' ') {
                 auxiliar = auxiliar + cadena.charAt(i);
             }
         }
-    //aqui ya tengo en el string auxiliar todas las letras
-    //de la palabra original pero sin espacios en blanco
-    
-    int indiceIzq = 0;
-    int indiceDer = auxiliar.length() - 1;
-    
-    while (auxiliar.charAt(indiceIzq) == auxiliar.charAt(indiceDer) && (indiceIzq <= indiceDer)){
-        indiceIzq++;
-        indiceDer--;
+        //aqui ya tengo en el string auxiliar todas las letras
+        //de la palabra original pero sin espacios en blanco
+
+        int indiceIzq = 0;
+        int indiceDer = auxiliar.length() - 1;
+
+        while (auxiliar.charAt(indiceIzq) == auxiliar.charAt(indiceDer) && (indiceIzq <= indiceDer)) {
+            indiceIzq++;
+            indiceDer--;
         }
-    boolean resultado = true;
-    if (indiceIzq < indiceDer){
-        System.out.print("La cadena " + cadena + "NO es un Palíndromo");
-        }
-    else { System.out.print("La cadena " + cadena + "SI es un Palíndromo");
+        boolean resultado = true;
+        if (indiceIzq < indiceDer) {
+            System.out.print("La cadena " + cadena + "NO es un Palíndromo");
+        } else {
+            System.out.print("La cadena " + cadena + "SI es un Palíndromo");
         }
     }
-    
-    
+
+    private boolean esIsograma(String palabra){
+       for (int i=0; i<palabra.length()-1; i++){
+           for (int j=i+1; j<palabra.length(); j++){
+               if (palabra.charAt(j) == palabra.charAt(i)){
+                   return false;
+               }
+           }
+       }
+       //si ha recorrido los dos bucles for enteros, es que 
+       //la palabra no tiene letras repetidas
+       return true;
+    }
+
+
+
+
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        EjemplosConsola ramon = new EjemplosConsola();
         EjemplosConsola ejercicios = new EjemplosConsola();
 
-        System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros)));
+//        System.out.println( Arrays.toString( ramon.maximos(ramon.listaNumeros)) );
+//        System.out.println( Arrays.toString( ramon.maximos(ramon.listaNumeros2)) );  
+//        System.out.println( Arrays.toString( ramon.maximos(ramon.listaNumeros3)) ); 
+//        System.out.println( Arrays.toString( ramon.maximos(ramon.listaNumeros4)) );
+//        
+//        ramon.palindromo("ACASO HUBO BUHOS ACA") ;
+//        ramon.palindromo("ACdfgfgddfgASO HUBO BUHOS ACA") ;
+//        ramon.palindromo("TACOCAT") ;
+//        ramon.palindromo("TACCAT") ;
 
-        System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros2)));
 
-        System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros3)));
-    
-        
-        System.out.println(ejercicios.palindromo("ACASO HUBO BUHOS ACA"));
+        ramon.palindromoV2("ACASO HUBO BUHOS ACA") ;
+        ramon.palindromoV2("ACdfgfgddfgASO HUBO BUHOS ACA") ;
+        ramon.palindromoV2("TACOCAT") ;
+        ramon.palindromoV2("TACCAT") ;
+        ejercicios.palindromoV2("ACASO HUBO BUHOS ACA") ;
+        ejercicios.palindromoV2("ACdfgfgddfgASO HUBO BUHOS ACA") ;
+        ejercicios.palindromoV2("TACOCAT") ;
+        ejercicios.palindromoV2("TACCAT") ;
+
+        System.out.println("TACCAT  " +ejercicios.esIsograma("TACCAT")) ;
+        System.out.println("murcielago  " +ejercicios.esIsograma("murcielago")) ;
+        System.out.println("murcielagoo  " +ejercicios.esIsograma("murcielagoo")) ;
     }
 
 }
-
-
