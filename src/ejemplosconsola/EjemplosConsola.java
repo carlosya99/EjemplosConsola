@@ -107,16 +107,17 @@ public class EjemplosConsola {
     }
 
     private void imprimeMes(int num) {
+
         for (int i = 1; i <= 31; i++) {
-            if (i % 7 == 0) {
-                System.out.println(" " + i);
-                i += 1;
-            }
+
             if (i < 10) {
                 System.out.print(" " + 0 + i);
             }
-            if (i > 10) {
+            if (i >= 10) {
                 System.out.print(" " + i);
+            }
+            if (i % 7 == 0) {
+                System.out.println(" ");
             }
         }
 
@@ -149,8 +150,11 @@ public class EjemplosConsola {
         //System.out.println("TACCAT  " + ejercicios.esIsograma("TACCAT"));
         //System.out.println("murcielago  " + ejercicios.esIsograma("murcielago"));
         //System.out.println("murcielagoo  " + ejercicios.esIsograma("murcielagoo"));
-        ejercicios.imprimeMes(3);
-
+        for (int i = 0; i < 7; i++) {
+            ejercicios.imprimeMes(i);
+            System.out.println();
+            System.out.println();
+        }
     }
 
 }
