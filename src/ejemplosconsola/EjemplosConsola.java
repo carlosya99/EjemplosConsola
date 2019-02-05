@@ -149,7 +149,9 @@ public class EjemplosConsola {
         //pasamos a mayúsculas todas las letras
         palabraA = palabraA.toUpperCase();
         palabraB = palabraB.toUpperCase();
-
+        palabraA = quitaEspaciosEnBlanco(palabraA);
+        palabraB = quitaEspaciosEnBlanco(palabraB);
+        
         boolean anagrama = false; //indica si las palabras son anagramas o no
         if (palabraA.length() == palabraB.length()) {//solo va chequear si las dos
             // palabras son igual de grandes
@@ -171,7 +173,15 @@ public class EjemplosConsola {
         }
         return anagrama;
     }
-
+     private String quitaEspaciosEnBlanco(String frase){
+        String auxiliar = "";
+        for (int i=0; i<frase.length(); i++){
+            if (frase.charAt(i) != ' '){
+                auxiliar = auxiliar + frase.charAt(i);
+            }
+        }
+        return auxiliar;
+     }
     /**
      * @param args the command line arguments
      */
@@ -204,6 +214,7 @@ public class EjemplosConsola {
     
         System.out.println( "roma amor " + ejercicios.esAnagrama("roma","amor")); 
         System.out.println( "roma amor " + ejercicios.esAnagrama("roma","pepee"));
+        System.out.println( "iam lord voldemort tom marvolo riddle " + ejercicios.esAnagrama("i am lord voldemort","tom marvolo riddle"));
     }
 }
 
